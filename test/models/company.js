@@ -5,7 +5,7 @@ var Company = require('../../server/db/models/company.js');
 var db = require('../../server/db/_db');
 
 function companyModelTest(){
-  describe('Category Model', function () {
+  describe('Company Model', function () {
     /*
       Clear database and recreate tables
     */
@@ -74,6 +74,14 @@ function companyModelTest(){
           .then(function (result) {
             expect(result).to.be.an.instanceOf(Error);
             expect(result.message).to.contain('Validation error');
+          });
+      });
+      it('must be a valid email', function () {
+        var company = Company.build({name: 'liwwa',password: 's0s3cr3t',email:'dog'});
+        return company.validate()
+          .then(function(result) {
+            expect(result).to.be.an.instanceOf(Error);
+            expect(result.message).to.contain('isEmail');
           });
       });
       it('email must be unique', function() {

@@ -6,7 +6,6 @@ var db = require('../../server/db/_db');
 
 function companyModelTest(){
   describe('Category Model', function () {
-
     /*
       Clear database and recreate tables
     */
@@ -14,51 +13,67 @@ function companyModelTest(){
       return db.sync({force: true});
     });
 
-    it('has name', function () {
-      return Company.create({
-        name: 'liwwa',
-      }).then(function (savedCompany) {
-        expect(savedCompany.name).to.equal('liwwa');
-      });
-
-    });
-
-    it('requires name', function () {
-      var company = Company.build({});
-      return category.validate()
-        .then(function(result) {
-          expect(result).to.be.an.instanceOf(Error);
-          expect(result.message).to.contain('notNull');
+    describe('name field', function () {
+      it('has name', function () {
+        return Company.create({
+          name: 'liwwa',
+          email: 'elana@liwwa.com'
+        }).then(function (savedCompany) {
+          expect(savedCompany.name).to.equal('liwwa');
         });
-    });
-
-    // it('name must be unique', function() {
-    //   return Company.create({
-    //     name: ''
-    //   }).then(function (){
-    //     var category = Category.build({
-    //       name: 'one'
-    //     });
-    //     return category.save()
-    //     .catch(function (error){
-    //       expect(error).to.be.an.instanceOf(Error);
-    //       expect(error.message).to.contain('Validation');
-    //     })
-    //   });
-    // });
-
-    it('name cannot be empty', function () {
-
-      var category = Category.build({
-        name: '',
       });
-
-      return category.validate()
-        .then(function (result) {
-          expect(result).to.be.an.instanceOf(Error);
-          expect(result.message).to.contain('Validation error');
+      it('requires name', function () {
+        var company = Company.build({email: 'elana@liwwa.com'});
+        return company.validate()
+          .then(function(result) {
+            expect(result).to.be.an.instanceOf(Error);
+            expect(result.message).to.contain('notNull');
+          });
+      });
+      it('name cannot be empty', function () {
+        var company= Company.build({
+          name: '',
+          email: 'elana@liwwa.com'
         });
+
+        return company.validate()
+          .then(function (result) {
+            expect(result).to.be.an.instanceOf(Error);
+            expect(result.message).to.contain('Validation error');
+          });
+      });
     });
+
+    describe('email field', function () {
+      it('has email', function () {
+        return Company.create({
+          name: 'liwwa',
+          email: 'samer@liwwa.com'
+        }).then(function (savedCompany) {
+          expect(savedCompany.email).to.equal('samer@liwwa.com');
+        });
+      });
+      it('requires email', function () {
+        var company = Company.build({name: 'liwwa'});
+        return company.validate()
+          .then(function(result) {
+            expect(result).to.be.an.instanceOf(Error);
+            expect(result.message).to.contain('notNull');
+          });
+      });
+      it('email cannot be empty', function () {
+        var company= Company.build({
+          name: 'liwwa',
+          email: ''
+        });
+        return company.validate()
+          .then(function (result) {
+            expect(result).to.be.an.instanceOf(Error);
+            expect(result.message).to.contain('Validation error');
+          });
+      });
+    });
+
   });
 
 }

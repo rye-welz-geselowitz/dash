@@ -5,7 +5,10 @@ var Sequelize = require('sequelize');
 var db = require('../_db');
 
 var Employee = db.define('employee', {
-  name: Sequelize.STRING,
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   phone: {
     type:Sequelize.STRING,
     validate: {

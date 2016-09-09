@@ -19,8 +19,14 @@ var Company = db.define('company', {
     validate: {
       isEmail: true,
       notEmpty: true
-    },
-    password: Sequelize.STRING
+    }
+  },
+  password: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      validate: {
+        len: [5,15]
+      }
   }
 });
 

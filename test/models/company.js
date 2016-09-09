@@ -5,6 +5,7 @@ var Company = require('../../server/db/models/company.js');
 var db = require('../../server/db/_db');
 
 function companyModelTest(){
+  var company;
   describe('Company Model', function () {
     /*
       Clear database and recreate tables
@@ -24,7 +25,7 @@ function companyModelTest(){
         });
       });
       it('requires name', function () {
-        var company = Company.build({email: 'elana@liwwa.com',password: 's0s3cr3t'});
+        company = Company.build({email: 'elana@liwwa.com',password: 's0s3cr3t'});
         return company.validate()
           .then(function(result) {
             expect(result).to.be.an.instanceOf(Error);
@@ -32,7 +33,7 @@ function companyModelTest(){
           });
       });
       it('name cannot be empty', function () {
-        var company= Company.build({
+        company= Company.build({
           name: '',
           email: 'elana@liwwa.com',
           password: 's0s3cr3t'
@@ -57,7 +58,7 @@ function companyModelTest(){
         });
       });
       it('requires email', function () {
-        var company = Company.build({name: 'liwwa',password: 's0s3cr3t'});
+        company = Company.build({name: 'liwwa',password: 's0s3cr3t'});
         return company.validate()
           .then(function(result) {
             expect(result).to.be.an.instanceOf(Error);
@@ -65,7 +66,7 @@ function companyModelTest(){
           });
       });
       it('email cannot be empty', function () {
-        var company= Company.build({
+        company= Company.build({
           name: 'liwwa',
           email: '',
           password: 's0s3cr3t'
@@ -77,7 +78,7 @@ function companyModelTest(){
           });
       });
       it('must be a valid email', function () {
-        var company = Company.build({name: 'liwwa',password: 's0s3cr3t',email:'dog'});
+        company = Company.build({name: 'liwwa',password: 's0s3cr3t',email:'dog'});
         return company.validate()
           .then(function(result) {
             expect(result).to.be.an.instanceOf(Error);
@@ -90,7 +91,7 @@ function companyModelTest(){
           email: 'david@liwwa.com',
           password: 's0s3cr3t'
         }).then(function (){
-          var company = Company.build({
+          company = Company.build({
             name: 'liwwa2',
             email: 'david@liwwa.com',
             password: 's0s3cr3t'
@@ -114,7 +115,7 @@ function companyModelTest(){
           });
         });
         it('requires password', function () {
-          var company = Company.build({name: 'White House',email: 'obama@whitehouse.com'});
+          company = Company.build({name: 'White House',email: 'obama@whitehouse.com'});
           return company.validate()
             .then(function(result) {
               expect(result).to.be.an.instanceOf(Error);
@@ -122,7 +123,7 @@ function companyModelTest(){
             });
         });
         it('password must be greater than 4 chars', function () {
-          var company = Company.build({name: 'White House',email: 'michelle@whitehouse.com',password:'arms'});
+          company = Company.build({name: 'White House',email: 'michelle@whitehouse.com',password:'arms'});
           return company.validate()
             .then(function(result) {
               expect(result).to.be.an.instanceOf(Error);
@@ -130,7 +131,7 @@ function companyModelTest(){
             });
         });
         it('password must be less than 16 chars', function () {
-          var company = Company.build({name: 'White House',email: 'malia@whitehouse.com',password:'thisisgonnabesuchalongpassword'});
+          company = Company.build({name: 'White House',email: 'malia@whitehouse.com',password:'thisisgonnabesuchalongpassword'});
           return company.validate()
             .then(function(result) {
               expect(result).to.be.an.instanceOf(Error);

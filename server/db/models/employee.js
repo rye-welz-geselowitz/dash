@@ -7,7 +7,10 @@ var db = require('../_db');
 var Employee = db.define('employee', {
   name: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   phone: {
     type:Sequelize.STRING,
@@ -17,7 +20,6 @@ var Employee = db.define('employee', {
   },
   email: {
     type: Sequelize.STRING,
-    allowNull: false,
     unique: true,
     validate: {
       isEmail: true

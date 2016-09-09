@@ -5,7 +5,10 @@ var Sequelize = require('sequelize');
 var db = require('../_db');
 
 var Company = db.define('company', {
-  name: Sequelize.STRING,
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   email: {
     type: Sequelize.STRING,
     allowNull: false,

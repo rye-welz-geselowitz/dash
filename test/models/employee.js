@@ -80,6 +80,71 @@ function employeeModelTest(){
       });
     });
 
+	describe('hire date', function () {
+      it('has hire date', function () {
+      	var date=Date.parse('Fri Sep 09 2016 17:59:21 GMT-0400 (EDT)');
+        return Employee.create({
+          name: 'Gregarious Greg',
+          hireDate: date
+        }).then(function (savedEmployee) {
+          expect(savedEmployee.hireDate.toString()).to.equal('Fri Sep 09 2016 17:59:21 GMT-0400 (EDT)');
+        });
+      });
+    });
+
+	describe('phone number', function () {
+      it('has phone number of 10 or 11 digits', function () {
+        return Employee.create({
+          name: 'Gregarious Greg',
+          phone: '4180382999'
+        })
+        .then(function (savedEmployee) {
+          employee=savedEmployee;
+          return Employee.create({
+          	name: 'Gregarious Greg',
+          	phone: '14180382999'
+           })
+         })
+         .then(function(savedEmployee){
+          expect(savedEmployee.phone).to.equal('14180382999');
+          expect(employee.phone).to.equal('4180382999');
+        });
+      });
+      it('phone number only has digits', function () {
+        employee = Employee.build({
+        	name: 'Gregarious Greg',
+          	phone: '418o382999'
+          });
+        return employee.validate()
+          .then(function(result) {
+            expect(result).to.be.an.instanceOf(Error);
+            expect(result.message).to.contain('Validation error');
+          });
+      });
+      it('phone number no longer than 11 char', function () {
+        employee = Employee.build({
+        	name: 'Gregarious Greg',
+          	phone: '1418038299900'
+          });
+        return employee.validate()
+          .then(function(result) {
+            expect(result).to.be.an.instanceOf(Error);
+            expect(result.message).to.contain('Validation error');
+          });
+      });
+      it('phone number no shorter than 10 char', function () {
+        employee = Employee.build({
+        	name: 'Gregarious Greg',
+          	phone: '141803829'
+          });
+        return employee.validate()
+          .then(function(result) {
+            expect(result).to.be.an.instanceOf(Error);
+            expect(result.message).to.contain('Validation error');
+          });
+      });
+    });
+
   });
 
 }

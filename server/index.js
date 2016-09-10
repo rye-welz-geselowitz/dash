@@ -13,4 +13,4 @@ var server = app.listen(port, function (err) {
   });
 });
 
-module.exports = server; //Do I need to export this?
+//module.exports = server; //Do I need to export this?

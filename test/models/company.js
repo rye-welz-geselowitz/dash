@@ -105,15 +105,15 @@ function companyModelTest(){
       });
     });
     describe('password', function () {
-        it('has password', function () {
-          return Company.create({
-            name: 'Google',
-            email: 'nick@google.com',
-            password: 'iluvrose'
-          }).then(function (savedCompany) {
-            expect(savedCompany.password).to.equal('iluvrose');
-          });
-        });
+        // it('has password', function () { //Commented out because now password encrypted
+        //   return Company.create({
+        //     name: 'Google',
+        //     email: 'nick@google.com',
+        //     password: 'iluvrose'
+        //   }).then(function (savedCompany) {
+        //     expect(savedCompany.password).to.equal('iluvrose');
+        //   });
+        // });
         it('requires password', function () {
           company = Company.build({name: 'White House',email: 'obama@whitehouse.com'});
           return company.validate()

@@ -1,7 +1,7 @@
 'use strict';
 
 var Sequelize = require('sequelize');
-var databaseURI = 'postgres://localhost:5432/dash';
+var databaseURI = require('../env').DATABASE_URI;
 
 var db = new Sequelize(databaseURI, {logging:false});
 

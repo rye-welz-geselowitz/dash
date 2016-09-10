@@ -3,12 +3,15 @@ var path = require('path');
 var session = require('express-session');
 var Company=require('../db/models/company');
 var bodyParser = require('body-parser');
+var db = require('../db');
 
 var app = express();
 
 //body parsing
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+require('./authentication')(app, db); //not sure if this should be here
 
 //static routing
 var rootPath = path.join(__dirname, '..', '..');

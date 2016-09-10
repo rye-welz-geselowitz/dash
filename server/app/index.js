@@ -16,7 +16,12 @@ require('./authentication')(app, db); //not sure if this should be here
 //static routing
 var rootPath = path.join(__dirname, '..', '..');
 var publicPath = path.join(rootPath, 'public');
+var browserPath = path.join(rootPath, 'browser');
+var npmPath = path.join(rootPath, '/node_modules');
+
 app.use(express.static(publicPath));
+app.use(express.static(browserPath));
+app.use(express.static(npmPath));
 
 
 app.use('/api', require('./routes'));

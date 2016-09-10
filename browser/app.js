@@ -7,4 +7,6 @@ app.config(function ($urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/');
 });
 
-//put app.run() here if necessary
+app.run(function(){
+	console.log('running!')
+})

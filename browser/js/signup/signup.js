@@ -27,7 +27,7 @@ app.factory('AuthFactory', function($http, $state) {
   authObj.currentUser.loggedIn = false;
 
   authObj.signup = function(data) {
-    return $http.post('/api/company', data)
+    return $http.post('/api/companies', data)
       // .catch($log.error);
   };
 

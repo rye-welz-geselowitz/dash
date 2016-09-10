@@ -25,4 +25,18 @@ app.use(express.static(npmPath));
 
 
 app.use('/api', require('./routes'));
+
+
+
+app.get('/*', function (req, res) {
+    res.sendFile(publicPath+'/index.html');
+});
+
+// Catch any errors
+app.use(function (err, req, res, next) {
+    console.error(err);
+    console.error(err.stack);
+    res.status(err.status || 500).send(err.message || 'Internal server error.');
+});
+
 module.exports = app;

@@ -14,6 +14,11 @@ app.factory('LoginFactory', function ($http, AuthService,$state,$rootScope) {
     };
     LoginFactory.signup = function(data) {
         return $http.post('/api/companies', data)
+        // .then(function(user){
+        //     $rootScope.currentCompany=user;
+        //     return user;
+        // })
+        //need to figure out how to set current user her
     };
     LoginFactory.logout = function () {
         console.log('logging out');
@@ -28,7 +33,6 @@ app.factory('LoginFactory', function ($http, AuthService,$state,$rootScope) {
           })
          .then(function(user){
             $rootScope.currentCompany=user;
-            // console.log('curr company is', $rootScope.currentCompany);
             $state.go('employeeslist')
          })
         .catch(function () {

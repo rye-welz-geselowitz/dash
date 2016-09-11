@@ -1,12 +1,12 @@
 app.config(function ($stateProvider) {
     $stateProvider.state('employeeslist', {
         url: '/employeeslist',
-        templateUrl: 'js/employees/employees.list.html',
-        controller: 'EmployeesListCtrl'
+        templateUrl: 'js/dashboard/dashboard.html',
+        controller: 'DashboardCtrl'
     });
 });
 
-app.controller('EmployeesListCtrl', function ($scope,EmployeeFactory,LoginFactory,$rootScope) {
+app.controller('DashboardCtrl', function ($scope,EmployeeFactory,LoginFactory,$rootScope) {
     console.log('employees of ',$rootScope.currentCompany);
 
     // console.log(req.userId);

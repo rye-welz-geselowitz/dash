@@ -1,9 +1,8 @@
 var router = require('express').Router();
 var Employee=require('../../db/models/employee');
+var utils=require('./utils')
 
-module.exports=router;
-
-
+utils.ensureLoggedIn(router);
 
 router.param('id', function (req, res, next, id) {
   Employee.findById(id)
@@ -43,3 +42,5 @@ router.delete('/:id', function (req, res, next) {
   })
   .catch(next);
 });
+
+module.exports=router;

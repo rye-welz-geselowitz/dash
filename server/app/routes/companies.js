@@ -2,11 +2,9 @@ var router = require('express').Router();
 var db=require('../../db/');
 var Company=db.model('company');
 var Employee=db.model('employee');
-// var Company=require('../../db/models/company');
+var utils=require('./utils')
 
-// router.get('/',function(req,res,next){
-// 	res.send('YOU GOT ME')
-// })
+
 
 router.post('/', function (req, res, next) {
   Company.create(req.body)
@@ -15,6 +13,8 @@ router.post('/', function (req, res, next) {
   })
   .catch(next);
 });
+
+utils.ensureLoggedIn(router);
 
 router.get('/:companyId/employees', function (req, res, next) {
   if (req.user.id.toString()===req.params.companyId){

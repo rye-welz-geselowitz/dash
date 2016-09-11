@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('signup', function (LoginFactory,AuthService,$state) {
+app.directive('signup', function (LoginFactory,AuthService,$state, $rootScope) {
   return {
     restrict: 'E',
     templateUrl: 'js/directives/signup/signup.html',
@@ -10,6 +10,12 @@ app.directive('signup', function (LoginFactory,AuthService,$state) {
         LoginFactory.signup(scope.signup)
         .then(function() {
           return AuthService.login(info)
+        })
+        .then(function(){
+          return LoginFactory.getLoggedInUser()
+        })
+        .then(function(company){
+          $rootScope.currentCompany=company;
         })
         .then(function() {
           $state.go('employeeslist')

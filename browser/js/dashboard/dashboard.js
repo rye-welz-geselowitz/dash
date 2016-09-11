@@ -8,9 +8,6 @@ app.config(function ($stateProvider) {
 
 app.controller('DashboardCtrl', function ($scope,EmployeeFactory,LoginFactory,$rootScope) {
     console.log('employees of ',$rootScope.currentCompany);
-
-    // console.log(req.userId);
-    // EmployeeFactory.fetchAll()
     LoginFactory.getLoggedInUser()
     .then(function(user){
         console.log(user.name)

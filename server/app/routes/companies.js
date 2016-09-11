@@ -14,9 +14,11 @@ router.post('/', function (req, res, next) {
   .catch(next);
 });
 
+console.log('in companies routes')
 utils.ensureLoggedIn(router);
 
 router.get('/:companyId/employees', function (req, res, next) {
+  console.log('hitting route');
   if (req.user.id.toString()===req.params.companyId){
   	console.log('yay')
     Employee.findAll({where: {companyId: req.params.companyId}})

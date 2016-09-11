@@ -19,7 +19,6 @@ app.directive('signup', function (LoginFactory,AuthService,$state, $rootScope) {
         })
         .then(function() {
           $state.go('employeeslist')
-          console.log('signed up!')
         });
       }
     }

@@ -24,9 +24,16 @@ app.use(express.static(browserPath));
 app.use(express.static(npmPath));
 
 
+app.get('/me', function (req, res, next) {
+    if (!req.user) {
+        res.sendStatus(401);
+    } else {
+        res.send(req.user);
+    }
+
+});
+
 app.use('/api', require('./routes'));
-
-
 
 app.get('/*', function (req, res) {
     res.sendFile(publicPath+'/index.html');

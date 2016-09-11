@@ -7,10 +7,12 @@ app.config(function ($stateProvider) {
 });
 
 app.controller('DashboardCtrl', function ($scope,EmployeeFactory,LoginFactory,$rootScope) {
-    console.log('employees of ',$rootScope.currentCompany);
     LoginFactory.getLoggedInUser()
     .then(function(user){
         console.log(user.name)
+        if(!$rootScope.currentCompany){
+            $rootScope.currentCompany=user;
+        }
         return EmployeeFactory.fetchAll(user.id)
     })
     .then(function(employees){

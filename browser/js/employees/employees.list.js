@@ -6,13 +6,14 @@ app.config(function ($stateProvider) {
     });
 });
 
-app.controller('EmployeesListCtrl', function ($scope,EmployeeFactory,LoginFactory) {
-    console.log('employees');
+app.controller('EmployeesListCtrl', function ($scope,EmployeeFactory,LoginFactory,$rootScope) {
+    console.log('employees of ',$rootScope.currentCompany);
 
     // console.log(req.userId);
     // EmployeeFactory.fetchAll()
     LoginFactory.getLoggedInUser()
     .then(function(user){
+        console.log(user.name)
         return EmployeeFactory.fetchAll(user.id)
     })
     .then(function(employees){

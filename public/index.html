@@ -7,14 +7,17 @@
     <script src="/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="js/authentication/fsa-pre-built.js"></script>
     <script src="app.js"></script>
-    <script src="js/login/login.js"></script>
-    <script src="js/signup/signup.js"></script>
     <script src="js/factories/employees.js"></script>
     <script src="js/factories/login.js"></script>
+    <script src="js/directives/logout/logout.js"></script>
+    <script src="js/directives/login/login.js"></script>
+    <script src="js/directives/signup/signup.js"></script>
     <script src="js/employees/employees.list.js"></script>
+    <script src="js/landing/landing.js"></script>
 
   </head>
   <body ng-app="dash">
+    <logout></logout>
     <p>This sure is an app.</p>
     <ui-view></ui-view>
   </body>

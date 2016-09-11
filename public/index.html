@@ -3,23 +3,35 @@
   <head>
     <title>Dash</title>
     <base href="/">
-    <script src="/angular/angular.js"></script>
-    <script src="/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="js/authentication/fsa-pre-built.js"></script>
-    <script src="app.js"></script>
-    <script src="js/factories/employees.js"></script>
-    <script src="js/factories/login.js"></script>
-    <script src="js/directives/logout/logout.js"></script>
-    <script src="js/directives/login/login.js"></script>
-    <script src="js/directives/signup/signup.js"></script>
-    <script src="js/directives/employee/employee.js"></script>
-    <script src="js/dashboard/dashboard.js"></script>
-    <script src="js/landing/landing.js"></script>
-
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/angular-material/angular-material.css">
+      <link type="text/css" rel="stylesheet" href="style.css">
 
   </head>
   <body ng-app="dash">
-    <logout></logout>
     <ui-view></ui-view>
+      <!--Bootstrap-->
+<!--       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="bootstrap/dist/js/bootstrap.min.js"></script> -->
+
+      <script src="/angular/angular.js"></script> 
+      <script src="/angular-aria/angular-aria.js"></script> 
+      <script src="/angular-animate/angular-animate.js"></script> 
+      <script src="/angular-material/angular-material.js"></script>
+
+      <script src="/angular/angular.js"></script>
+      <script src="/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="js/authentication/fsa-pre-built.js"></script>
+      <script src="app.js"></script>
+      <script src="js/factories/employees.js"></script>
+      <script src="js/factories/login.js"></script>
+      <script src="js/directives/logout/logout.js"></script>
+      <script src="js/directives/login/login.js"></script>
+      <script src="js/directives/signup/signup.js"></script>
+      <script src="js/directives/employee/employee.js"></script>
+      <script src="js/dashboard/dashboard.js"></script>
+      <script src="js/landing/landing.js"></script>
+
+
   </body>
 </html>

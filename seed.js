@@ -44,7 +44,31 @@ var seedEmployees= function () {
             phone: '1114443333',
             email: 'gandalf@wizard.com',
             hireDate: 'Sat Sep 11 2016 20:04:52 GMT-0400 (EDT)'
-        }
+        },
+        {
+            name: 'Harry Potter',
+            phone: '1124443333',
+            email: 'chosenone@wizard.com',
+            hireDate: 'Sat Sep 11 2012 20:04:52 GMT-0400 (EDT)'
+        },
+        {
+            name: 'Hermione Granger',
+            phone: '1114453333',
+            email: 'hermoninny@wizard.com',
+            hireDate: 'Sat Sep 15 2011 20:04:52 GMT-0400 (EDT)'
+        },
+        {
+            name: 'Tom Bombadil',
+            phone: '1114443333',
+            email: 'nature@natural.com',
+            hireDate: 'Sat Sep 11 2012 20:04:52 GMT-0400 (EDT)'
+        },
+        {
+            name: 'Prancing Pony',
+            phone: '1114243333',
+            email: 'pony@horses.com',
+            hireDate: 'Sat Sep 19 2010 20:04:52 GMT-0400 (EDT)'
+        }        
      
     ];
     var creatingEmployees = employees.map(function (employeeObj) {
@@ -67,7 +91,7 @@ db.sync({ force: true })
     })
     .then(function () {
         return Promise.all([
-            companyArr[0].setEmployees([employeeArr[0],employeeArr[1]])
+            companyArr[0].setEmployees(employeeArr)
         ]);
     })
     .then(function () {

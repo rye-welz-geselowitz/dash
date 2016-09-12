@@ -5,7 +5,6 @@ app.directive('login', function (AuthService, $state, LoginFactory,$rootScope) {
     restrict: 'E',
     templateUrl: 'js/directives/login/login.html',
     link: function (scope, elem, attrs) {
-      console.log('login')
       // scope.login = {};
       // scope.error = null;
       // LoginFactory.login();

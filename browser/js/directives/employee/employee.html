@@ -1,12 +1,41 @@
-<!-- <div>
-	{{employee.name}}, {{employee.email}}, {{employee.hireDate}}, {{employee.phone}}
-</div> -->
-<md-card>
+
+<!-- <md-card>
  <md-card-content>
    <h2>{{employee.name}}</h2>
-   <p>{{employee.email}}, {{employee.hireDate}}, {{employee.phone}}</p>
+   <p></p>
  </md-card-content>
-<!--  <md-card-footer>
-   Card footer
- </md-card-footer> -->
+</md-card> -->
+
+<!-- 
+<md-card style="width:300px">
+	<md-card-content layout='row'>
+		<div>
+			<h2>{{employee.name}}</h2>
+			<p>{{employee.email}}, {{employee.hireDate}}, {{employee.phone}}</p>
+		</div>
+	</md-card-content>
+	<div class="md-actions" layout="row" layout-align="end center">
+		<md-button>Save</md-button>
+		<md-button>View</md-button>
+	</div>
+</md-card> -->
+<md-list-item class="md-3-line" ng-click="goToDetail(employee)">
+  <md-button class="md-fab"> <!-- TODO! Add some margin -->
+      {{getInitials(employee.name)}}
+  </md-button>
+  <div class="md-list-item-text" layout="column">
+    <h3>{{employee.name}}</h3>
+    <h4>{{employee.email}}</h4>
+  </div>
+</md-list-item>
+
+<!-- 
+<md-card>
+  <md-card-title>
+
+    <md-card-title-text>
+      <span class="md-headline" contenteditable class="form-like">{{employee.name}}</span>
+      <span class="md-subhead description"><p>{{employee.email}}</p><p>{{employee.hireDate}}</p><p> {{employee.phone}}</p></span>
+    </md-card-title-text>
+  </md-card-title>
 </md-card>

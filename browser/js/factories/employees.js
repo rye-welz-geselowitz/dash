@@ -16,6 +16,12 @@ app.factory('EmployeeFactory', function ($http) {
     .then(getData);
   };
 
+  EmployeeFactory.fetchById = function (employeeId) {
+    return $http.get('/api/employees/'+employeeId)
+    .then(getData);
+  };
+
+
   return EmployeeFactory;
 
 });

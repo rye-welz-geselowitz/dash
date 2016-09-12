@@ -33,7 +33,7 @@ app.factory('LoginFactory', function ($http, AuthService,$state,$rootScope) {
           })
          .then(function(user){
             $rootScope.currentCompany=user;
-            $state.go('employeeslist')
+            $state.go('dashboard')
          })
         .catch(function () {
               console.log('Invalid login credentials.'); //TODO: better error handling

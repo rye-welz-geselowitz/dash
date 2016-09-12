@@ -1,6 +1,6 @@
 app.config(function ($stateProvider) {
-    $stateProvider.state('employeeslist', {
-        url: '/employeeslist',
+    $stateProvider.state('dashboard', {
+        url: '/dashboard',
         templateUrl: 'js/dashboard/dashboard.html',
         controller: 'DashboardCtrl'
     });

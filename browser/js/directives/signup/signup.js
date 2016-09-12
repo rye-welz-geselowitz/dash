@@ -18,7 +18,7 @@ app.directive('signup', function (LoginFactory,AuthService,$state, $rootScope) {
           $rootScope.currentCompany=company;
         })
         .then(function() {
-          $state.go('employeeslist')
+          $state.go('dashboard')
         });
       }
     }

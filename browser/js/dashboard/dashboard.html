@@ -1,4 +1,4 @@
-    <logout></logout>
+<!-- 
 
 <p>Employees:</p>
 <md-grid-list
@@ -12,5 +12,26 @@
 
 
 </md-grid-list>
+ -->
+<!-- 
+<div id='dashboard'>
+  <logout></logout>
+  <md-list>
+    <md-subheader class="md-no-sticky">Employees</md-subheader>
+    		<div ng-repeat="employee in employees">
+    			<employee employee='employee' ></employee>
+    		</div>
+  </md-list>
+</div> -->
 
-
+<div id='dashboard'>
+<logout></logout>
+  <md-content>
+      <md-list flex>
+        <md-subheader class="md-no-sticky">Employees</md-subheader>
+        <div ng-repeat="employee in employees" >
+          <employee employee='employee' ></employee>
+        </div>
+      </md-list>
+    </md-content>
+</div>

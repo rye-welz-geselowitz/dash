@@ -14,8 +14,16 @@ router.post('/', function (req, res, next) {
   .catch(next);
 });
 
-console.log('in companies routes')
 utils.ensureLoggedIn(router);
+
+router.put('/:id',function(req,res,next){
+  Company.findById(req.params.id)
+  .then(function(company){
+    company.update(req.body);
+    res.send(company);
+  })
+  .catch(next);
+})
 
 router.get('/:companyId/employees', function (req, res, next) {
   console.log('hitting route');

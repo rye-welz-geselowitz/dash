@@ -5,7 +5,7 @@ app.directive('signup', function (LoginFactory,AuthService,$state, $rootScope) {
     restrict: 'E',
     templateUrl: 'js/directives/signup/signup.html',
     link: function (scope, elem, attrs) {
-      scope.error=null;
+      scope.signuperror=null;
       scope.sendSignup = function(info) {
         console.log('info', info);
         LoginFactory.signup(scope.signup)
@@ -22,7 +22,7 @@ app.directive('signup', function (LoginFactory,AuthService,$state, $rootScope) {
           $state.go('dashboard')
         })
         .catch(function(){
-          scope.error='That email already exists in our system.'
+          scope.signuperror='That email already exists in our system.'
         })
       }
     }

@@ -16,7 +16,7 @@
                     <div layout-gt-xs="row">
                         <md-input-container class="md-block" flex-gt-sm>
                           <label>Email address</label>
-                          <input ng-model="signup.email" name="email" required>
+                          <input ng-model="signup.email" name="email" required ng-disabled="mode==='edit'">
                         </md-input-container>
                       </div>
                                           <div layout-gt-xs="row">
@@ -25,9 +25,12 @@
                           <input ng-model="signup.name" name="name" required>
                         </md-input-container>
                       </div>
-                      <div layout-gt-xs="row">
+                      <div ng-show='mode==="edit"' layout-gt-xs="row" layout-align="center center">
+                        <p>To make changes, enter your password:</p>
+                      </div>
+                      <div layout-gt-xs="row" >
                         <md-input-container class="md-block" flex-gt-sm>
-                          <label>Password</label>
+                          <label>Password:</label>
                           <input ng-model="signup.password" name="password" required type='password' maxlength="15" minlength="5">
                           <div ng-messages="signupForm.password.$error">
                             <div ng-message-exp="['minlength', 'maxlength']">
@@ -40,11 +43,16 @@
                         <p>{{signuperror}}</p>
                       </div>
                       <md-actions layout="row" layout-align="end center">
-                        <md-button type="submit" >Sign Up</md-button>
+                        <md-button type="submit" ng-show='mode!=="edit"'>Sign Up</md-button>
+                        <md-button type="submit" ng-show='mode==="edit"'>Update</md-button>
+
                       </md-actions>
                 </form>
             </div>
         </div>
     </div>
     </md-content>
+    <div layout="row" layout-align="end center" ng-show="mode==='edit'">
+      <md-button ui-sref='dashboard'>Back</md-button>
+    </div>
 </section>

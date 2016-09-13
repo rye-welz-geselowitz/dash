@@ -6,7 +6,11 @@ app.config(function ($stateProvider) {
     });
 });
 
-app.controller('LandingCtrl', function ($scope) {
+app.controller('LandingCtrl', function ($scope,LoginFactory,$state) {
+    LoginFactory.getLoggedInUser()
+    .then(function(user){
+        $state.go('dashboard');
+    })
 	var messages={'signup': 'I already have an account!', 'login': "I don't have an account yet!"}
     $scope.signUpMode=false;
     $scope.message=messages['login'];

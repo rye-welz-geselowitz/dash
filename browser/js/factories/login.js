@@ -2,7 +2,6 @@ app.factory('LoginFactory', function ($http, AuthService,$state,$rootScope) {
 
     var LoginFactory = {};
     $rootScope.currentCompany=null;
-
     LoginFactory.getLoggedInUser = function () {
         return $http.get('/me')
             .then(function (res) {
@@ -12,6 +11,13 @@ app.factory('LoginFactory', function ($http, AuthService,$state,$rootScope) {
             //     // currentUser = null;
             // });
     };
+    LoginFactory.redirect=function(){
+        this.getLoggedInUser()
+        .catch(function(){
+            $state.go('landing');
+        })
+    }
+
     LoginFactory.signup = function(data) {
         return $http.post('/api/companies', data)
     };

@@ -19,6 +19,9 @@ app.controller('DashboardCtrl', function ($scope,EmployeeFactory,LoginFactory,$r
         $scope.employees=employees;
         console.log(employees);
     })
+    .catch(function(){
+        $state.go('landing');
+    })
     $scope.goToDetail=function(employee){
         $state.go('employee');
     }

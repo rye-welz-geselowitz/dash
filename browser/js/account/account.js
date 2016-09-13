@@ -6,6 +6,12 @@ app.config(function ($stateProvider) {
     });
 });
 
-app.controller('AccountCtrl', function ($scope,$rootScope) {
-   $scope.currentCompany=$rootScope.currentCompany;
+app.controller('AccountCtrl', function ($scope,$rootScope,LoginFactory) {
+	LoginFactory.redirect();
+	if(!$rootScope.currentCompany){
+		LoginFactory.getLoggedInUser()
+		.then(function(user){
+			$rootScope.currentCompany=user;
+		})
+	}
 });

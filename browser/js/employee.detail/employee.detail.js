@@ -9,8 +9,10 @@ app.config(function ($stateProvider) {
     });
 });
 
-app.controller('EmployeeDetailCtrl', function ($scope,$stateParams,EmployeeFactory,$state) {
+app.controller('EmployeeDetailCtrl', function ($scope,$stateParams,EmployeeFactory,$state,LoginFactory) {
    console.log('this sure is an employee');
+    LoginFactory.redirect();
+
    $scope.addMode=false;
     var parseDate=function(dateString){
         return new Date(dateString);

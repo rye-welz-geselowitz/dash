@@ -27,7 +27,12 @@
                       <div layout-gt-xs="row">
                         <md-input-container class="md-block" flex-gt-sm>
                           <label>Password</label>
-                          <input ng-model="signup.password" name="password" required type='password'>
+                          <input ng-model="signup.password" name="password" required type='password' maxlength="15" minlength="5">
+                          <div ng-messages="signupForm.password.$error">
+                            <div ng-message-exp="['minlength', 'maxlength']">
+                              Must be between 5 and 15 characters.
+                            </div>
+                          </div>
                         </md-input-container>
                       </div>
                       <div layout-gt-xs="row" class='errorMessage' layout-align="center center">

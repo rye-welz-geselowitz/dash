@@ -3,27 +3,31 @@
     <div >
       <md-card style="width:400px">
       <div>
-          <form name="employeeForm" ng-submit="employeeForm.$valid && saveInfo(employee)">
+          <form novalidate name="employeeForm" ng-submit="employeeForm.$valid && saveInfo(employee)">
           <md-card-title>
             <md-card-title-text>
 
                 <md-input-container class="md-block" flex-gt-sm>
                   <label>Name</label>
-<!-- <input ng-model="employee.name" name='name' required>
-  <div ng-messages="employeeForm.name.$error" multiple>
-  <div ng-message="required">
-  You've got to charge something! You can't just <b>give away</b> a Missile Defense
-  System.
-  </div>
-</div> -->
+                  <input ng-model="employee.name" name='name' required>
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
                   <label>Email</label>
-                  <input type="email" ng-model="employee.email">
+                  <input type="email" ng-model="employee.email" name='email'>
+                  <div ng-messages="employeeForm.email.$error">
+                    <div ng-message="type">
+                      That's not a valid email!
+                    </div>
+                  </div>
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
                   <label>Phone</label>
-                  <input ng-model="employee.phone">
+                  <input ng-model="employee.phone" phone-validation name='phone' required>
+                    <div ng-messages="employeeForm.phone.$error.numlength">
+                      <div ng-message="numlength">
+                        Enter a 10 or 11 digit phone number.
+                      </div>
+                    </div>
                 </md-input-container>
                      <md-input-container>
             <label>Hire Date</label>

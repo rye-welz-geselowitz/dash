@@ -8,7 +8,7 @@
           </div>
           <div class="row">
               <div class="col s12">
-                  <form id="login-form" name="loginForm" ng-submit="loginForm.$valid && sendLogin(login)">
+                  <form novalidate id="login-form" name="loginForm" ng-submit="loginForm.$valid && sendLogin(login)">
                       <alert type="danger" ng-show="error">{{ error }}</alert>
                       <div layout-gt-xs="row">
                         <md-input-container md-no-float class="md-block" flex-gt-sm>

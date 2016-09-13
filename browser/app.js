@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('dash', ['fsaPreBuilt','ui.router','ngMaterial']);
+var app = angular.module('dash', ['fsaPreBuilt','ui.router','ngMaterial', 'ngMessages']);
 
 app.config(function ( $urlRouterProvider, $locationProvider) {
 

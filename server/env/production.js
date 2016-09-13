@@ -1,4 +1,4 @@
 module.exports = {
-  "DATABASE_URI": "postgres://localhost:5432/dash",
-  "SESSION_SECRET": "I was not always vegan"
+  "DATABASE_URI":process.env.DATABASE_URL,
+  "SESSION_SECRET": process.env.SESSION_SECRET
 };

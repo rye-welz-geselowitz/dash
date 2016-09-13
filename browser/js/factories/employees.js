@@ -21,6 +21,10 @@ app.factory('EmployeeFactory', function ($http) {
     .then(getData);
   };
 
+  EmployeeFactory.update = function (employeeId,employee) {
+    return $http.put('/api/employees/'+employeeId, employee)
+    .then(getData);
+  };
 
   return EmployeeFactory;
 

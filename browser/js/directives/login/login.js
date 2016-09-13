@@ -5,9 +5,9 @@ app.directive('login', function (AuthService, $state, LoginFactory,$rootScope) {
     restrict: 'E',
     templateUrl: 'js/directives/login/login.html',
     link: function (scope, elem, attrs) {
-      // scope.login = {};
-      // scope.error = null;
-      // LoginFactory.login();
+      document.querySelector("input[type=password]").value = " ";
+      document.querySelector("input[type=password]").value = "";
+      document.querySelector("input[type=password]").blur()
 
       scope.sendLogin = function (loginInfo) {
           // scope.error = null;

@@ -1,19 +1,46 @@
-<div>
-  <md-content class="md-padding" layout-xs="column" layout="row">
-    <div flex-xs flex-gt-xs="50" layout="column">
-      <md-card>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">{{employee.name}}</span>
-            <span class="md-subhead">Large</span>
-          </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-lg card-media"></div>
-          </md-card-title-media>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button>Edit</md-button>
-        </md-card-actions>
+<div >
+  <md-content layout="row" layout-align="center center">
+    <div >
+      <md-card style="width:400px">
+      <div>
+          <form name="employeeForm" ng-submit="employeeForm.$valid && saveInfo(employee)">
+          <md-card-title>
+            <md-card-title-text>
+
+                <md-input-container class="md-block" flex-gt-sm>
+                  <label>Name</label>
+<!-- <input ng-model="employee.name" name='name' required>
+  <div ng-messages="employeeForm.name.$error" multiple>
+  <div ng-message="required">
+  You've got to charge something! You can't just <b>give away</b> a Missile Defense
+  System.
+  </div>
+</div> -->
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                  <label>Email</label>
+                  <input type="email" ng-model="employee.email">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                  <label>Phone</label>
+                  <input ng-model="employee.phone">
+                </md-input-container>
+                     <md-input-container>
+            <label>Hire Date</label>
+            <md-datepicker ng-model="employee.hireDate"></md-datepicker>
+          </md-input-container>
+          
+
+
+            </md-card-title-text>
+
+          </md-card-title>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button type="submit">Save</md-button>
+          </md-card-actions>
+        </form>
+       </div>
       </md-card>
+      <md-button ng-click='goBack()'>Back</md-button>
   </md-content>
 </div>

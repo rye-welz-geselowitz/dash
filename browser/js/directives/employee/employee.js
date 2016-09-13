@@ -8,7 +8,6 @@ app.directive('employee', function (AuthService, $state, LoginFactory,$rootScope
     },
     templateUrl: 'js/directives/employee/employee.html',
     link: function (scope, elem, attrs) {
-      console.log('employee');  
       scope.getInitials=function(name){
         var toReturn=name[0];
 

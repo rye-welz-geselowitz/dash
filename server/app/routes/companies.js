@@ -19,7 +19,10 @@ utils.ensureLoggedIn(router);
 router.put('/:id',function(req,res,next){
   Company.findById(req.params.id)
   .then(function(company){
-    company.update(req.body);
+    console.log('HERE',company)
+    return company.update(req.body);
+  })
+  .then(function(company){
     res.send(company);
   })
   .catch(next);

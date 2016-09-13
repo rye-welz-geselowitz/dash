@@ -22,6 +22,4 @@ app.controller('DashboardCtrl', function ($scope,EmployeeFactory,LoginFactory,$r
     $scope.goToDetail=function(employee){
         $state.go('employee');
     }
-
-
 });

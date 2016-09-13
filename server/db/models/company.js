@@ -25,10 +25,7 @@ var Company = db.define('company', {
   },
   password: {
       type: Sequelize.STRING,
-      allowNull: false,
-      validate: {
-        len: [5,15]
-      }
+      allowNull: false
   },
   salt: {
     type: Sequelize.STRING

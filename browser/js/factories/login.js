@@ -14,11 +14,12 @@ app.factory('LoginFactory', function ($http, AuthService,$state,$rootScope) {
     };
     LoginFactory.signup = function(data) {
         return $http.post('/api/companies', data)
-        // .then(function(user){
-        //     $rootScope.currentCompany=user;
-        //     return user;
-        // })
-        //need to figure out how to set current user her
+    };
+    LoginFactory.update = function(data,companyId) {
+        return $http.put('/api/companies/'+companyId, data)
+        .then(function(res){
+            return res.data;
+        })
     };
     LoginFactory.logout = function () {
         console.log('logging out');

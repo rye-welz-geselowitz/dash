@@ -6,6 +6,6 @@ app.config(function ($stateProvider) {
     });
 });
 
-app.controller('AccountCtrl', function ($scope) {
-   console.log('Account')
+app.controller('AccountCtrl', function ($scope,$rootScope) {
+   $scope.currentCompany=$rootScope.currentCompany;
 });

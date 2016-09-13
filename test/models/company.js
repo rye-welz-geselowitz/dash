@@ -122,22 +122,7 @@ function companyModelTest(){
               expect(result.message).to.contain('notNull');
             });
         });
-        it('password must be greater than 4 chars', function () {
-          company = Company.build({name: 'White House',email: 'michelle@whitehouse.com',password:'arms'});
-          return company.validate()
-            .then(function(result) {
-              expect(result).to.be.an.instanceOf(Error);
-              expect(result.message).to.contain('len');
-            });
-        });
-        it('password must be less than 16 chars', function () {
-          company = Company.build({name: 'White House',email: 'malia@whitehouse.com',password:'thisisgonnabesuchalongpassword'});
-          return company.validate()
-            .then(function(result) {
-              expect(result).to.be.an.instanceOf(Error);
-              expect(result.message).to.contain('len');
-            });
-        });
+
       });
   });
 

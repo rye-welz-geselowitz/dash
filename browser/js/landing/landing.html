@@ -1,14 +1,15 @@
-<center><h1 class="md-display-3">Welcome to Dash!</h1></center>
+<center><h1 class="md-display-3">Dash</h1></center>
 
-<div layout='row' layout-xs="column">
-	<div flex>
-		<md-card style='height:450px'>
-			<signup></signup>
-		</md-card>
-	</div>
-	<div flex>
-		<md-card style='height:450px'>
-			<login></login>
+<div layout="column" layout-align="center center">
+	<div >
+		<md-card style="width:400px">
+			<md-card-content>
+				<signup ng-show="signUpMode"></signup>
+				<login ng-hide="signUpMode"></login>
+			</md-card-content>
+			<md-card-actions layout="row" layout-align="end center">
+				<md-button ng-click="toggleSignUpMode()">{{message}}</md-button>
+			</md-card-actions>
 		</md-card>
 	</div>
 </div>

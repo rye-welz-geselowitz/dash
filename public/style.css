@@ -2,3 +2,12 @@
   margin: 20px;
 }
 
+.errorMessage{
+	color:red;
+	font-size: 14px;
+	text-align: center;
+}
+
+.transparent{
+	background-color: transparent;
+}

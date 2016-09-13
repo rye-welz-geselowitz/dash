@@ -1,9 +1,11 @@
 var router = require('express').Router();
 var Employee=require('../../db/models/employee');
+
 var utils=require('./utils')
 
 utils.ensureLoggedIn(router);
 
+console.log('employees route ')
 router.param('id', function (req, res, next, id) {
   console.log('in employees route')
   Employee.findById(id)
@@ -20,10 +22,13 @@ router.param('id', function (req, res, next, id) {
   .catch(next);
 });
 
-router.post('/', function (req, res, next) {
-  Employee.create(req.body)
+router.post('/new', function (req, res, next) {
+  var employeeInfo=req.body;
+  employeeInfo.companyId=req.user.id;
+  Employee.create(employeeInfo)
   .then(function (employee) {
-    res.status(201).json(employee);
+    console.log('employee is',employee)
+    res.json(employee);
   })
   .catch(next);
 });

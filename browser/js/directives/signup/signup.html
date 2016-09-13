@@ -1,6 +1,6 @@
 <section id="signup">
     <md-content layout-padding>
-    <div class="container">
+    <div >
         <div class="row">
             <div class="col s12">
                 <h1>Sign Up</h1>
@@ -9,8 +9,10 @@
         <div class="row">
             <div class="col s12">
                 <form novalidate id="login-form" name="signupForm" ng-submit="signupForm.$valid && sendSignup(signup)">
-                    <alert type="danger" ng-show="error"> {{ error }} </alert>
-                                        <div layout-gt-xs="row">
+                <!--PREVENT CHROME AUTOFILL-->
+                <input style="display:none" type="text" name="name"/>
+                <input style="display:none" type="password" name="password"/>
+                    <div layout-gt-xs="row">
                         <md-input-container class="md-block" flex-gt-sm>
                           <label>Email address</label>
                           <input ng-model="signup.email" name="email" required>
@@ -19,7 +21,7 @@
                                           <div layout-gt-xs="row">
                         <md-input-container class="md-block" flex-gt-sm>
                           <label>Company Name</label>
-                          <input ng-model="signup.name" name="password" required>
+                          <input ng-model="signup.name" name="name" required>
                         </md-input-container>
                       </div>
                       <div layout-gt-xs="row">
@@ -28,7 +30,12 @@
                           <input ng-model="signup.password" name="password" required type='password'>
                         </md-input-container>
                       </div>
-                    <md-button  type="submit" >Sign Up</md-button>
+                      <div layout-gt-xs="row" class='errorMessage' layout-align="center center">
+                        <p>{{error}}</p>
+                      </div>
+                      <md-actions layout="row" layout-align="end center">
+                        <md-button type="submit" >Sign Up</md-button>
+                      </md-actions>
                 </form>
             </div>
         </div>

@@ -10,12 +10,15 @@ app.directive('login', function (AuthService, $state, LoginFactory,$rootScope) {
       document.querySelector("input[type=password]").blur()
 
       scope.sendLogin = function (loginInfo) {
-          // scope.error = null;
+          scope.error = null;
           LoginFactory.login(loginInfo)
           .then(function(){
               LoginFactory.getLoggedInUser()
             .then(function(user){
               $rootScope.currentCompany=user;
+            })
+            .catch(function(){
+              scope.error='Incorrect email/password combination.'
             })
           })
           // LoginFactory.getLoggedInUser()

@@ -6,7 +6,7 @@ app.config(function ($stateProvider) {
     });
 });
 
-app.controller('DashboardCtrl', function ($scope,EmployeeFactory,LoginFactory,$rootScope) {
+app.controller('DashboardCtrl', function ($scope,EmployeeFactory,LoginFactory,$rootScope,$state) {
     LoginFactory.getLoggedInUser()
     .then(function(user){
         console.log(user.name)
@@ -19,6 +19,9 @@ app.controller('DashboardCtrl', function ($scope,EmployeeFactory,LoginFactory,$r
         $scope.employees=employees;
         console.log(employees);
     })
+    $scope.goToDetail=function(employee){
+        $state.go('employee');
+    }
 
 
 });

@@ -26,6 +26,12 @@ app.factory('EmployeeFactory', function ($http) {
     .then(getData);
   };
 
+  EmployeeFactory.addNew = function (employee) {
+    console.log('adding new employee')
+    return $http.post('/api/employees/new', employee)
+    .then(getData);
+  };
+
   return EmployeeFactory;
 
 });

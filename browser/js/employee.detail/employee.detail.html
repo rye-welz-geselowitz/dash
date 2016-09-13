@@ -54,11 +54,13 @@
 </div> -->
 
 
- <md-content layout-padding>
-  <md-card>
-    <form name="employeeForm" ng-submit="employeeForm.$valid && saveInfo(employee)">
+ <md-content layout="column" layout-align="center center">
+  <md-card style='width:400px;padding:10px 40px'>
+    <md-card-title>
+    <md-card-title-text>
+    <form novalidate name="employeeForm" ng-submit="employeeForm.$valid && saveInfo(employee)">
       <div layout="row">
-        <md-input-container flex="50">
+        <md-input-container>
           <label>Name</label>
           <input required name="employeeName" ng-model="employee.name">
           <div ng-messages="employeeForm.employeeName.$error">
@@ -66,10 +68,11 @@
           </div>
         </md-input-container>
       </div>
+      <div layout="row">
 
       <md-input-container class="md-block">
         <label>Email</label>
-        <input type="email" name="employeeEmail" ng-model="employee.email" ng-pattern="/^.+@.+\..+$/"/>
+        <input name="employeeEmail" ng-model="employee.email" ng-pattern="/^.+@.+\..+$/"/>
 
         <div ng-messages="employeeForm.employeeEmail.$error" role="alert">
           <div ng-message='pattern'>
@@ -77,25 +80,32 @@
           </div>
         </div>
       </md-input-container>
+      </div>
+      <div layout="row">
 
       <md-input-container class="md-block" flex-gt-sm>
         <label>Phone</label>
-        <input ng-model="employee.phone" phone-validation name='employeePhone'>
+        <input ng-model="employee.phone" phone-validation name='employeePhone' id='phoneInput'>
           <div ng-messages="employeeForm.employeePhone.$error">
             <div ng-message="numlength">
               Enter a 10 or 11 digit phone number.
             </div>
           </div>
       </md-input-container>
+      </div>
+      <div layout="row">
 
       <md-input-container>
         <label>Hire Date</label>
         <md-datepicker ng-model="employee.hireDate"></md-datepicker>
       </md-input-container>
-
-      <div>
-        <md-button type="submit">Save</md-button>
       </div>
+      </md-card-title-text>
+      </md-card-title>
+
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button type="submit">Save</md-button>
+          </md-card-actions>
 
     </form>
     </md-card>

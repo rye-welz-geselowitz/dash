@@ -5,10 +5,10 @@
       <md-button ui-sref='account'>My Account</md-button><logout></logout>
       <md-list flex>
         <md-subheader class="md-no-sticky">Employees</md-subheader>
-<!--         <md-button disabled='true'>Sort By:</md-button>
-        <md-button>Hire Date</md-button>
-        <md-button>Name</md-button>
-        <md-button>Email</md-button> -->
+        <md-button disabled='true'>Sort By:</md-button>
+        <md-button ng-click='sortBy("timeSinceHired")'>Hire Date</md-button>
+        <md-button ng-click='sortBy("name")'>Name</md-button>
+        <md-button ng-click='sortBy("email")'>Email</md-button>
 
         <md-list-item class="md-3-line" ng-click="goToDetail(employee)">
           <md-button class="md-fab" ng-click="goToDetail(employee)"> <!-- TODO! Add some margin -->
@@ -18,7 +18,7 @@
             <h3>Add New</h3>
           </div>
         </md-list-item>
-        <div ng-repeat="employee in employees | orderBy: 'name'" >
+        <div ng-repeat="employee in employees | orderBy: sortAttribute" >
           <employee employee='employee' ></employee>
         </div>
       </md-list>

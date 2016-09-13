@@ -64,6 +64,9 @@ app.controller('EmployeeDetailCtrl', function ($scope,$stateParams,EmployeeFacto
         })
     }
 
-
+  $scope.project = {
+    description: 'Nuclear Missile Defense System',
+    rate: 500
+  };
 
 });

@@ -20,9 +20,8 @@ var Employee = db.define('employee', {
   },
   email: {
     type: Sequelize.STRING,
-    unique: true,
     validate: {
-      isEmail: true
+      is: ['^.+@.+\..+$']
     }
   },
   hireDate: Sequelize.DATE

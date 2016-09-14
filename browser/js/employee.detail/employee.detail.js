@@ -33,6 +33,8 @@ app.controller('EmployeeDetailCtrl', function ($scope,$stateParams,EmployeeFacto
     }
     else{
         $scope.addMode=true;
+        $scope.employee={};
+        $scope.employee.hireDate=new Date();
     }
     $scope.goBack=function(){
         $state.go('dashboard');

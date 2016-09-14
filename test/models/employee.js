@@ -62,22 +62,6 @@ function employeeModelTest(){
             expect(result.message).to.contain('Validation is failed');
           });
       });
-      // it('email must be unique', function() {
-      //   return Employee.create({
-      //     name: 'Badass Bridget',
-      //     email: 'b@b.com'
-      //   }).then(function (){
-      //     employee = Employee.build({
-      //       name: 'Badass Bee',
-      //       email: 'b@b.com',
-      //     });
-      //     return employee.save()
-      //     .catch(function (error){
-      //       expect(error).to.be.an.instanceOf(Error);
-      //       expect(error.message).to.contain('Validation');
-      //     })
-      //   });
-      // });
     });
 
 	describe('hire date', function () {

@@ -1,5 +1,4 @@
-//TODO: Clean up comments 
-
+/*Auth logic adapted from FSG https://github.com/FullstackAcademy/fsg*/
 'use strict';
 var path = require('path');
 var session = require('express-session');

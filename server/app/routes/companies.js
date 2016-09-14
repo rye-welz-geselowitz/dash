@@ -19,7 +19,6 @@ utils.ensureLoggedIn(router);
 router.put('/:id',function(req,res,next){
   Company.findById(req.params.id)
   .then(function(company){
-    console.log('HERE',company)
     return company.update(req.body);
   })
   .then(function(company){
@@ -29,9 +28,7 @@ router.put('/:id',function(req,res,next){
 })
 
 router.get('/:companyId/employees', function (req, res, next) {
-  console.log('hitting route');
   if (req.user.id.toString()===req.params.companyId){
-  	console.log('yay')
     Employee.findAll({where: {companyId: req.params.companyId}})
     .then(function(employees){
       res.send(employees);

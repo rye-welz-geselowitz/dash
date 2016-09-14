@@ -34,3 +34,13 @@ h1{
 .employeeList{
 	padding-bottom:40px;
 }
+
+.account-card{
+	width:400px;
+}
+
+.employeeDetail{
+	width:400px;
+	padding:20px 40px;
+	margin-top:40px;
+}

@@ -6,7 +6,7 @@ var stripPhone=function(phoneString){
         }
     }
     return toReturn;
-} //TODO: remove REPEAT CODE
+} 
 
 var INTEGER_REGEXP = /^[0-9]{10,11}$/;
 
@@ -19,8 +19,6 @@ app.directive('phoneValidation', function() {
           // consider empty models to be valid
           return true;
         }
-        console.log(stripPhone(viewValue));
-        console.log(INTEGER_REGEXP.test(stripPhone(viewValue)))
         if (INTEGER_REGEXP.test(stripPhone(viewValue))) {
           // it is valid
           return true;

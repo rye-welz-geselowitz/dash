@@ -10,6 +10,6 @@ $mdThemingProvider.theme('default')
   $urlRouterProvider.otherwise('/landing');
 });
 
-app.run(function(){
-	console.log('running!')
-})
+// app.run(function(){
+// 	console.log('running!')
+// })

@@ -1,4 +1,4 @@
-//TODO: clean up comments
+/*Auth logic adapted from FSG https://github.com/FullstackAcademy/fsg*/
 'use strict';
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;

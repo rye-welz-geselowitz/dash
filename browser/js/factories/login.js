@@ -7,9 +7,6 @@ app.factory('LoginFactory', function ($http, AuthService,$state,$rootScope) {
             .then(function (res) {
                 return res.data;
             })
-            // .catch(function () {
-            //     // currentUser = null;
-            // });
     };
     LoginFactory.redirect=function(){
         this.getLoggedInUser()
@@ -28,7 +25,6 @@ app.factory('LoginFactory', function ($http, AuthService,$state,$rootScope) {
         })
     };
     LoginFactory.logout = function () {
-        console.log('logging out');
         AuthService.logout().then(function () {
             $rootScope.currentCompany=null;
            $state.go('landing');
@@ -42,9 +38,6 @@ app.factory('LoginFactory', function ($http, AuthService,$state,$rootScope) {
             $rootScope.currentCompany=user;
             $state.go('dashboard')
          })
-        .catch(function () {
-              console.log('Invalid login credentials.'); //TODO: better error handling
-          });
     }
           
 

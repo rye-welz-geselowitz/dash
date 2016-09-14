@@ -5,10 +5,6 @@ app.directive('login', function (AuthService, $state, LoginFactory,$rootScope) {
     restrict: 'E',
     templateUrl: 'js/directives/login/login.html',
     link: function (scope, elem, attrs) {
-      document.querySelector("input[type=password]").value = " ";
-      document.querySelector("input[type=password]").value = "";
-      document.querySelector("input[type=password]").blur()
-
       scope.sendLogin = function (loginInfo) {
           scope.loginerror = null;
           LoginFactory.login(loginInfo)
@@ -21,16 +17,6 @@ app.directive('login', function (AuthService, $state, LoginFactory,$rootScope) {
               scope.loginerror='Incorrect email/password combination.'
             })
           })
-          // LoginFactory.getLoggedInUser()
-          // .then(function(user){
-          //   $rootScope.currentCompany=user;
-          // })
-          // .then(function(){
-          //   return LoginFactory.getLoggedInUser();
-          // })
-          // .then(function(user){
-          //   $rootScope.currentCompany=user;
-          // })
       };      
     }
   }

@@ -1,5 +1,5 @@
 'use strict';
-
+/*The signup directive is also used on the 'my account' page. In this case, set mode='edit'*/
 app.directive('signup', function (LoginFactory,AuthService,$state, $rootScope) {
   return {
     restrict: 'E',
@@ -10,10 +10,12 @@ app.directive('signup', function (LoginFactory,AuthService,$state, $rootScope) {
     templateUrl: 'js/directives/signup/signup.html',
     link: function (scope, elem, attrs) {
       scope.signuperror=null;
+      //If this directive is used on the 'my account' page, display password as empty string
       if(scope.signup){
             scope.signup.password='';
       }
       scope.sendSignup = function(info) {
+        //if directive on my account page...
         if(scope.mode==='edit'){
           console.log('hey')
           AuthService.login({email:scope.signup.email,password:scope.signup.password})
@@ -29,6 +31,7 @@ app.directive('signup', function (LoginFactory,AuthService,$state, $rootScope) {
             scope.signuperror="That's not your password!"
           })
         }
+        //otherwise...
         else{
           LoginFactory.signup(scope.signup)
           .then(function() {

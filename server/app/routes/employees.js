@@ -5,9 +5,7 @@ var utils=require('./utils')
 
 utils.ensureLoggedIn(router);
 
-console.log('employees route ')
 router.param('id', function (req, res, next, id) {
-  console.log('in employees route')
   Employee.findById(id)
   .then(function (employee) {
     if (!employee){
@@ -27,14 +25,12 @@ router.post('/new', function (req, res, next) {
   employeeInfo.companyId=req.user.id;
   Employee.create(employeeInfo)
   .then(function (employee) {
-    console.log('employee is',employee)
     res.json(employee);
   })
   .catch(next);
 });
 
 router.get('/:id', function (req, res, next) {
-  console.log('getting the employee')
   res.json(req.requestedEmployee); //how to catch error??
 });
 

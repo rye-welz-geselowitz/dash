@@ -1,4 +1,5 @@
-/*Adapted from Full Stack Generator code*/
+/*Authentication flow adapted from FSG 
+https://github.com/FullstackAcademy/fsg*/
 (function () {
 
     'use strict';

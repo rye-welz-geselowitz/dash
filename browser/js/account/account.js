@@ -1,3 +1,5 @@
+'use strict';
+
 app.config(function ($stateProvider) {
     $stateProvider.state('account', {
         url: '/account',
@@ -7,7 +9,9 @@ app.config(function ($stateProvider) {
 });
 
 app.controller('AccountCtrl', function ($scope,$rootScope,LoginFactory) {
+	//redirect if not logged in
 	LoginFactory.redirect();
+	//populate fields on refresh
 	if(!$rootScope.currentCompany){
 		LoginFactory.getLoggedInUser()
 		.then(function(user){

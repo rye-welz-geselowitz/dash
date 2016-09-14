@@ -26,6 +26,11 @@ app.factory('EmployeeFactory', function ($http) {
     .then(getData);
   };
 
+  EmployeeFactory.delete= function (employeeId,employee) {
+    return $http.delete('/api/employees/'+employeeId)
+    .then(getData);
+  };
+
   EmployeeFactory.addNew = function (employee) {
     console.log('adding new employee')
     return $http.post('/api/employees/new', employee)

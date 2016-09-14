@@ -12,6 +12,8 @@ app.controller('AccountCtrl', function ($scope,$rootScope,LoginFactory) {
 		LoginFactory.getLoggedInUser()
 		.then(function(user){
 			$rootScope.currentCompany=user;
+			$scope.currentCompany=JSON.parse(JSON.stringify($rootScope.currentCompany));
+			$scope.currentCompany.password='';
 		})
 	}
 });

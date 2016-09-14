@@ -19,8 +19,8 @@
 		<md-button>View</md-button>
 	</div>
 </md-card> -->
-<md-list-item class="md-3-line" ng-click="goToDetail(employee)">
-  <md-button class="md-fab" ng-click="goToDetail(employee)"> <!-- TODO! Add some margin -->
+<md-list-item class="md-3-line" ng-click="goToDetail(employee)" >
+  <md-button class="md-fab" ng-click="goToDetail(employee)" md-colors="::{backgroundColor: 'default-primary-500'}"> <!-- TODO! Add some margin -->
       {{getInitials(employee.name)}}
   </md-button>
   <div class="md-list-item-text" layout="column">

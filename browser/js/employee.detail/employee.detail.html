@@ -1,63 +1,6 @@
-<!-- <div >
-  <md-content layout="row" layout-align="center center">
-    <div >
-      <md-card style="width:400px">
-      <div>
-          <form novalidate name="employeeForm" ng-submit="employeeForm.$valid && saveInfo(employee)">
-          <md-card-title>
-            <md-card-title-text>
-
-                <md-input-container class="md-block" flex-gt-sm>
-                  <label>Name</label>
-                  <input ng-model="employee.name" name='name' required>
-                </md-input-container>
-
-                <md-input-container class="md-block" flex-gt-sm>
-                  <label>Email</label>
-                  <input type="email" ng-model="employee.email" name='email' role="alert">
-                  <div ng-messages="employeeForm.email.$error" multiple md-auto-hide="false">
-                    <div ng-message="type">
-                      That's not a valid email!
-                    </div>
-                  </div>
-                </md-input-container>
-
-                <md-input-container class="md-block" flex-gt-sm>
-                  <label>Phone</label>
-                  <input ng-model="employee.phone" phone-validation name='phone' required>
-                    <div ng-messages="employeeForm.phone.$error.numlength" multiple md-auto-hide="false">
-                      <div ng-message="numlength">
-                        Enter a 10 or 11 digit phone number.
-                      </div>
-                    </div>
-                </md-input-container>
-
-          <md-input-container>
-            <label>Hire Date</label>
-            <md-datepicker ng-model="employee.hireDate"></md-datepicker>
-          </md-input-container>
-
-          
-
-
-            </md-card-title-text>
-
-          </md-card-title>
-          <md-card-actions layout="row" layout-align="end center">
-            <md-button type="submit">Save</md-button>
-          </md-card-actions>
-        </form>
-       </div>
-      </md-card>
-      <md-button ng-click='goBack()'>Back</md-button>
-  </md-content>
-</div> -->
-
-
- <md-content layout="column" layout-align="center center">
-  <md-card style='width:400px;padding:10px 40px'>
-    <md-card-title>
-    <md-card-title-text>
+ <md-content layout="column" layout-align="center center" md-colors="::{backgroundColor: 'default-primary-800'}">
+  <md-card style='width:400px;padding:20px 40px;margin-top:40px'>
+    <md-card-content>
     <form novalidate name="employeeForm" ng-submit="employeeForm.$valid && saveInfo(employee)">
       <div layout="row">
         <md-input-container>
@@ -100,11 +43,11 @@
         <md-datepicker ng-model="employee.hireDate"></md-datepicker>
       </md-input-container>
       </div>
-      </md-card-title-text>
-      </md-card-title>
+      </md-card-content>
 
           <md-card-actions layout="row" layout-align="end center">
             <md-button type="submit">Save</md-button>
+            <md-button ng-click='deleteEmployee()' ng-hide='addMode'>Delete Employee</md-button>
           </md-card-actions>
 
     </form>

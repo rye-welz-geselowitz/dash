@@ -66,13 +66,17 @@ app.controller('EmployeeDetailCtrl', function ($scope,$stateParams,EmployeeFacto
         }
 
     }
-
     document.getElementById("phoneInput").onkeypress = function(e) {
         var chr = String.fromCharCode(e.which);
         if ("0123456789".indexOf(chr) < 0)
             return false;
     };
-
+    $scope.deleteEmployee=function(){
+        EmployeeFactory.delete($scope.employee.id)
+        .then(function(){
+            $state.go('dashboard');
+        })
+    }
 
 
 });

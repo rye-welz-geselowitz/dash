@@ -10,16 +10,10 @@ app.directive('signup', function (LoginFactory,AuthService,$state, $rootScope) {
     templateUrl: 'js/directives/signup/signup.html',
     link: function (scope, elem, attrs) {
       scope.signuperror=null;
-      if(scope.signup) scope.signup.password='';
-      // if(scope.mode==='edit'){
-      //   scope.passwordMessage='Enter password to proceed.'
-      // }
-      // else{
-      //   scope.passwordMessage='Password:'
-
-      // }
+      if(scope.signup){
+            scope.signup.password='';
+      }
       scope.sendSignup = function(info) {
-        console.log('sendin')
         if(scope.mode==='edit'){
           console.log('hey')
           AuthService.login({email:scope.signup.email,password:scope.signup.password})

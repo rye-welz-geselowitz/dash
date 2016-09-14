@@ -1,5 +1,5 @@
 #dashboard{
-  margin: 50px;
+  padding: 50px;
 }
 
 .errorMessage{
@@ -10,4 +10,27 @@
 
 .transparent{
 	background-color: transparent;
+}
+
+body{
+	margin: 0px;
+	padding:0px;
+}
+
+h1{
+	margin-top:0px;
+	font-family: 'Covered By Your Grace', cursive;
+}
+
+.h1Container{
+	padding-top:40px;
+}
+
+.md-fab{
+	margin-right:40px;
+	margin-left:40px;
+}
+
+.employeeList{
+	padding-bottom:40px;
 }
